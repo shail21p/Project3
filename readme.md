@@ -1,13 +1,13 @@
 # Project Setup
 
-[![Production Workflow](https://github.com/shail21p/Project3/actions/workflows/prod.yml/badge.svg)
+[![Production Workflow]
 
-* [Production Deployment](https://github.com/shail21p/Project3/actions/workflows/prod.yml)
+* [Production Deployment]
 
 
-[![Development Workflow](https://github.com/shail21p/Project3/actions/workflows/dev.yml/badge.svg)
+[![Development Workflow]
 
-* [Developmental Deployment](https://github.com/shail21p/Project3/actions/workflows/dev.yml)
+* [Developmental Deployment]
 
 ## Setting up CI/CD
 
