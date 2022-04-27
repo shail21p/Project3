@@ -1,4 +1,8 @@
 import logging
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
+logging.debug('The file has been updated.')
+logging.info('have a great day.')
+logging.warning('please upload in the formal required.')
 from flask import has_request_context, request
 
 
