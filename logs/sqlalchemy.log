@@ -11386,3 +11386,1938 @@ FROM (SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS s
 FROM songs) AS anon_1
 2022-04-29 17:59:40,347 [INFO] sqlalchemy.engine.Engine: [generated in 0.00134s] ()
 2022-04-29 17:59:40,349 [INFO] sqlalchemy.engine.Engine: ROLLBACK
+2022-04-29 18:02:29,596 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:29,598 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:29,599 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,601 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:29,602 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,603 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:29,604 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,605 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:29,607 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,612 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:29,613 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,615 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:29,615 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,618 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:29,619 [INFO] sqlalchemy.engine.Engine: [no key 0.00121s] ()
+2022-04-29 18:02:29,622 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:29,623 [INFO] sqlalchemy.engine.Engine: [no key 0.00102s] ()
+2022-04-29 18:02:29,625 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:29,626 [INFO] sqlalchemy.engine.Engine: [no key 0.00099s] ()
+2022-04-29 18:02:29,627 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:29,635 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:29,636 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:29,637 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,639 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:29,641 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,642 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:29,643 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,645 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:29,649 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:29,650 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:29,651 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,653 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:29,655 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,656 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:29,658 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:29,660 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:30,316 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:30,317 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:30,318 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,320 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:30,321 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,323 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:30,323 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,325 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:30,326 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,327 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:30,328 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,329 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:30,330 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,332 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:30,333 [INFO] sqlalchemy.engine.Engine: [no key 0.00108s] ()
+2022-04-29 18:02:30,335 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,336 [INFO] sqlalchemy.engine.Engine: [no key 0.00085s] ()
+2022-04-29 18:02:30,337 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,338 [INFO] sqlalchemy.engine.Engine: [no key 0.00071s] ()
+2022-04-29 18:02:30,339 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:30,381 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:30,382 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:30,383 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,384 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:30,385 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,386 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:30,387 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,388 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:30,388 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,390 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:30,390 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,391 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:30,392 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,394 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:30,394 [INFO] sqlalchemy.engine.Engine: [no key 0.00077s] ()
+2022-04-29 18:02:30,396 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,397 [INFO] sqlalchemy.engine.Engine: [no key 0.00077s] ()
+2022-04-29 18:02:30,398 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,399 [INFO] sqlalchemy.engine.Engine: [no key 0.00076s] ()
+2022-04-29 18:02:30,400 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:30,448 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:30,449 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:30,450 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,451 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:30,451 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,453 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:30,453 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,455 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:30,456 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,457 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:30,458 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,459 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:30,460 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,462 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:30,463 [INFO] sqlalchemy.engine.Engine: [no key 0.00104s] ()
+2022-04-29 18:02:30,466 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,467 [INFO] sqlalchemy.engine.Engine: [no key 0.00103s] ()
+2022-04-29 18:02:30,470 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,471 [INFO] sqlalchemy.engine.Engine: [no key 0.00116s] ()
+2022-04-29 18:02:30,472 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:30,513 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:30,514 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:30,515 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,517 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:30,517 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,518 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:30,519 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,520 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:30,521 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,522 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:30,523 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,524 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:30,525 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,527 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:30,528 [INFO] sqlalchemy.engine.Engine: [no key 0.00074s] ()
+2022-04-29 18:02:30,530 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,531 [INFO] sqlalchemy.engine.Engine: [no key 0.00080s] ()
+2022-04-29 18:02:30,533 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,533 [INFO] sqlalchemy.engine.Engine: [no key 0.00096s] ()
+2022-04-29 18:02:30,535 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:30,590 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:30,591 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:30,592 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,594 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:30,595 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,596 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:30,597 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,599 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:30,600 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,601 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:30,601 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,603 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:30,604 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,605 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:30,606 [INFO] sqlalchemy.engine.Engine: [no key 0.00077s] ()
+2022-04-29 18:02:30,608 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,609 [INFO] sqlalchemy.engine.Engine: [no key 0.00072s] ()
+2022-04-29 18:02:30,611 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:30,611 [INFO] sqlalchemy.engine.Engine: [no key 0.00094s] ()
+2022-04-29 18:02:30,613 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:30,620 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:30,621 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:30,621 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,623 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:30,624 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,625 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:30,626 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,627 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:30,631 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:30,632 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:30,633 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,634 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:30,635 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,636 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:30,637 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:30,638 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:31,111 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:31,113 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:31,113 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,115 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:31,115 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,116 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:31,117 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,118 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:31,119 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,120 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:31,121 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,122 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:31,123 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,125 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:31,126 [INFO] sqlalchemy.engine.Engine: [no key 0.00086s] ()
+2022-04-29 18:02:31,128 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:31,128 [INFO] sqlalchemy.engine.Engine: [no key 0.00081s] ()
+2022-04-29 18:02:31,130 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:31,131 [INFO] sqlalchemy.engine.Engine: [no key 0.00089s] ()
+2022-04-29 18:02:31,132 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:31,139 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:31,140 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:31,141 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,142 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:31,143 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,144 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:31,145 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,146 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:31,150 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:31,151 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:31,152 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,153 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:31,154 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,155 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:31,156 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,157 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:31,631 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:31,632 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:31,633 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,635 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:31,636 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,637 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:31,638 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,639 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:31,640 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,642 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:31,643 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,644 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:31,645 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,647 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:31,648 [INFO] sqlalchemy.engine.Engine: [no key 0.00115s] ()
+2022-04-29 18:02:31,650 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:31,651 [INFO] sqlalchemy.engine.Engine: [no key 0.00107s] ()
+2022-04-29 18:02:31,653 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:31,654 [INFO] sqlalchemy.engine.Engine: [no key 0.00088s] ()
+2022-04-29 18:02:31,656 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:31,663 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:31,664 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:31,665 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,667 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:31,667 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,669 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:31,670 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,671 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:31,676 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:31,677 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:31,678 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,679 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:31,680 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,681 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:31,683 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:31,684 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:32,180 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:32,181 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:32,182 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,183 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:32,184 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,185 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:32,186 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,187 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:32,188 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,190 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:32,191 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,192 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:32,193 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,196 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:32,197 [INFO] sqlalchemy.engine.Engine: [no key 0.00098s] ()
+2022-04-29 18:02:32,199 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:32,200 [INFO] sqlalchemy.engine.Engine: [no key 0.00088s] ()
+2022-04-29 18:02:32,202 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:32,203 [INFO] sqlalchemy.engine.Engine: [no key 0.00097s] ()
+2022-04-29 18:02:32,205 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:32,213 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:32,214 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:32,215 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,216 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:32,217 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,219 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:32,220 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,221 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:32,226 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:32,227 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:32,227 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,229 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:32,230 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,231 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:32,232 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,233 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:32,692 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:32,693 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:32,694 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,696 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:32,696 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,697 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:32,698 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,699 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:32,700 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,702 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:32,702 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,704 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:32,705 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,707 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:32,708 [INFO] sqlalchemy.engine.Engine: [no key 0.00105s] ()
+2022-04-29 18:02:32,710 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:32,711 [INFO] sqlalchemy.engine.Engine: [no key 0.00085s] ()
+2022-04-29 18:02:32,712 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:32,713 [INFO] sqlalchemy.engine.Engine: [no key 0.00086s] ()
+2022-04-29 18:02:32,715 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:32,723 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:32,724 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:32,724 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,726 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:32,726 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,728 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:32,728 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,730 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:32,734 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:32,736 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:32,736 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,738 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:32,738 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,740 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:32,740 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:32,742 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:33,246 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:33,247 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:33,247 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,250 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:33,251 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,253 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:33,254 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,256 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:33,257 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,258 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:33,259 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,260 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:33,261 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,264 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:33,265 [INFO] sqlalchemy.engine.Engine: [no key 0.00100s] ()
+2022-04-29 18:02:33,267 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:33,268 [INFO] sqlalchemy.engine.Engine: [no key 0.00160s] ()
+2022-04-29 18:02:33,271 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:33,272 [INFO] sqlalchemy.engine.Engine: [no key 0.00150s] ()
+2022-04-29 18:02:33,274 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:33,283 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:33,285 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:33,286 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,288 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:33,289 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,291 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:33,292 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,294 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:33,301 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:33,302 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:33,303 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,305 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:33,307 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,310 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:33,311 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,312 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:33,865 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:33,866 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:33,867 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,868 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:33,869 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,870 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:33,871 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,873 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:33,874 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,875 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:33,875 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,877 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:33,878 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,880 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:33,881 [INFO] sqlalchemy.engine.Engine: [no key 0.00092s] ()
+2022-04-29 18:02:33,883 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:33,884 [INFO] sqlalchemy.engine.Engine: [no key 0.00093s] ()
+2022-04-29 18:02:33,886 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:33,887 [INFO] sqlalchemy.engine.Engine: [no key 0.00087s] ()
+2022-04-29 18:02:33,888 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:33,896 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:33,897 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:33,898 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,899 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:33,900 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,902 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:33,902 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,904 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:33,909 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:33,910 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:33,911 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,913 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:33,913 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,915 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:33,916 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:33,917 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:34,362 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:34,363 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:34,364 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,366 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:34,367 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,368 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:34,369 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,371 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:34,372 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,373 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:34,374 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,375 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:34,376 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,378 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:34,379 [INFO] sqlalchemy.engine.Engine: [no key 0.00097s] ()
+2022-04-29 18:02:34,381 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:34,382 [INFO] sqlalchemy.engine.Engine: [no key 0.00106s] ()
+2022-04-29 18:02:34,384 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:34,385 [INFO] sqlalchemy.engine.Engine: [no key 0.00097s] ()
+2022-04-29 18:02:34,386 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:34,394 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:34,395 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:34,396 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,398 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:34,399 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,400 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:34,401 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,403 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:34,408 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:34,409 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:34,410 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,411 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:34,412 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,414 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:34,414 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,416 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:34,868 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:34,869 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:02:34,870 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,872 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:02:34,873 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,874 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:02:34,875 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,876 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:02:34,876 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,877 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:02:34,878 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,880 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:02:34,881 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:02:34,883 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:02:34,884 [INFO] sqlalchemy.engine.Engine: [no key 0.00108s] ()
+2022-04-29 18:02:34,886 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:34,887 [INFO] sqlalchemy.engine.Engine: [no key 0.00088s] ()
+2022-04-29 18:02:34,889 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:02:34,890 [INFO] sqlalchemy.engine.Engine: [no key 0.00122s] ()
+2022-04-29 18:02:34,891 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:02:34,909 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:02:34,920 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT users.is_active AS users_is_active, users.id AS users_id, users.email AS users_email, users.password AS users_password, users.about AS users_about, users.authenticated AS users_authenticated, users.registered_on AS users_registered_on, users.is_admin AS users_is_admin 
+FROM users) AS anon_1
+2022-04-29 18:02:34,921 [INFO] sqlalchemy.engine.Engine: [generated in 0.00122s] ()
+2022-04-29 18:02:34,927 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.user_id AS songs_user_id 
+FROM songs) AS anon_1
+2022-04-29 18:02:34,928 [INFO] sqlalchemy.engine.Engine: [generated in 0.00126s] ()
+2022-04-29 18:02:34,930 [INFO] sqlalchemy.engine.Engine: ROLLBACK
+2022-04-29 18:03:13,417 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:13,419 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:13,420 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,421 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:13,422 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,423 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:13,424 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,425 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:13,426 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,427 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:13,428 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,429 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:13,430 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,432 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:13,433 [INFO] sqlalchemy.engine.Engine: [no key 0.00116s] ()
+2022-04-29 18:03:13,435 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:13,436 [INFO] sqlalchemy.engine.Engine: [no key 0.00101s] ()
+2022-04-29 18:03:13,438 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:13,439 [INFO] sqlalchemy.engine.Engine: [no key 0.00090s] ()
+2022-04-29 18:03:13,440 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:13,447 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:13,448 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:13,449 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,450 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:13,451 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,452 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:13,453 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,454 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:13,459 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:13,460 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:13,461 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,462 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:13,463 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,464 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:13,465 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:13,466 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:14,315 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:14,316 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:14,317 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,319 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:14,320 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,321 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:14,321 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,323 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:14,323 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,325 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:14,325 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,326 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:14,327 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,329 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:14,330 [INFO] sqlalchemy.engine.Engine: [no key 0.00079s] ()
+2022-04-29 18:03:14,332 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,332 [INFO] sqlalchemy.engine.Engine: [no key 0.00094s] ()
+2022-04-29 18:03:14,334 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,335 [INFO] sqlalchemy.engine.Engine: [no key 0.00086s] ()
+2022-04-29 18:03:14,336 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:14,385 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:14,386 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:14,386 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,388 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:14,388 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,390 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:14,391 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,392 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:14,392 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,393 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:14,394 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,395 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:14,396 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,398 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:14,398 [INFO] sqlalchemy.engine.Engine: [no key 0.00077s] ()
+2022-04-29 18:03:14,401 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,402 [INFO] sqlalchemy.engine.Engine: [no key 0.00092s] ()
+2022-04-29 18:03:14,403 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,404 [INFO] sqlalchemy.engine.Engine: [no key 0.00080s] ()
+2022-04-29 18:03:14,405 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:14,444 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:14,444 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:14,445 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,446 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:14,447 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,448 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:14,449 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,450 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:14,451 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,452 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:14,453 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,454 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:14,455 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,457 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:14,457 [INFO] sqlalchemy.engine.Engine: [no key 0.00080s] ()
+2022-04-29 18:03:14,459 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,460 [INFO] sqlalchemy.engine.Engine: [no key 0.00083s] ()
+2022-04-29 18:03:14,462 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,463 [INFO] sqlalchemy.engine.Engine: [no key 0.00086s] ()
+2022-04-29 18:03:14,464 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:14,509 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:14,510 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:14,511 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,512 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:14,513 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,514 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:14,514 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,516 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:14,516 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,518 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:14,518 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,520 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:14,521 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,523 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:14,524 [INFO] sqlalchemy.engine.Engine: [no key 0.00087s] ()
+2022-04-29 18:03:14,526 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,526 [INFO] sqlalchemy.engine.Engine: [no key 0.00078s] ()
+2022-04-29 18:03:14,528 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,529 [INFO] sqlalchemy.engine.Engine: [no key 0.00094s] ()
+2022-04-29 18:03:14,530 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:14,572 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:14,572 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:14,573 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,575 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:14,576 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,577 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:14,578 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,579 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:14,580 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,581 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:14,581 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,583 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:14,584 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,586 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:14,586 [INFO] sqlalchemy.engine.Engine: [no key 0.00077s] ()
+2022-04-29 18:03:14,588 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,589 [INFO] sqlalchemy.engine.Engine: [no key 0.00082s] ()
+2022-04-29 18:03:14,591 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:14,591 [INFO] sqlalchemy.engine.Engine: [no key 0.00079s] ()
+2022-04-29 18:03:14,592 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:14,598 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:14,599 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:14,600 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,601 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:14,602 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,603 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:14,604 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,605 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:14,607 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:14,608 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:14,609 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,610 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:14,611 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,612 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:14,613 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,614 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:14,988 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:14,989 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:14,990 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,991 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:14,992 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,993 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:14,994 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,995 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:14,995 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,997 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:14,998 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:14,999 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:15,000 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,001 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:15,002 [INFO] sqlalchemy.engine.Engine: [no key 0.00076s] ()
+2022-04-29 18:03:15,004 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:15,004 [INFO] sqlalchemy.engine.Engine: [no key 0.00066s] ()
+2022-04-29 18:03:15,006 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:15,007 [INFO] sqlalchemy.engine.Engine: [no key 0.00083s] ()
+2022-04-29 18:03:15,008 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:15,015 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:15,016 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:15,016 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,018 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:15,018 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,019 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:15,020 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,022 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:15,026 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:15,027 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:15,028 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,029 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:15,030 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,031 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:15,031 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,033 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:15,420 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:15,421 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:15,422 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,423 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:15,424 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,425 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:15,425 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,427 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:15,427 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,428 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:15,429 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,430 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:15,431 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,433 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:15,434 [INFO] sqlalchemy.engine.Engine: [no key 0.00095s] ()
+2022-04-29 18:03:15,436 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:15,437 [INFO] sqlalchemy.engine.Engine: [no key 0.00104s] ()
+2022-04-29 18:03:15,439 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:15,440 [INFO] sqlalchemy.engine.Engine: [no key 0.00101s] ()
+2022-04-29 18:03:15,441 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:15,448 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:15,449 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:15,450 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,451 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:15,452 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,453 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:15,454 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,455 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:15,460 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:15,461 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:15,461 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,463 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:15,463 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,464 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:15,465 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:15,466 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:15,961 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:16,067 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:16,068 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,070 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:16,072 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,075 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:16,076 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,078 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:16,081 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,082 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:16,083 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,085 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:16,085 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,088 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:16,104 [INFO] sqlalchemy.engine.Engine: [no key 0.01545s] ()
+2022-04-29 18:03:16,106 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:16,132 [INFO] sqlalchemy.engine.Engine: [no key 0.02649s] ()
+2022-04-29 18:03:16,135 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:16,153 [INFO] sqlalchemy.engine.Engine: [no key 0.01876s] ()
+2022-04-29 18:03:16,155 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:16,175 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:16,177 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:16,178 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,181 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:16,184 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,187 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:16,188 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,191 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:16,202 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:16,204 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:16,205 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,206 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:16,209 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,211 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:16,212 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,214 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:16,722 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:16,723 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:16,723 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,725 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:16,726 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,727 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:16,728 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,729 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:16,729 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,731 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:16,732 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,733 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:16,734 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,736 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:16,736 [INFO] sqlalchemy.engine.Engine: [no key 0.00084s] ()
+2022-04-29 18:03:16,738 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:16,739 [INFO] sqlalchemy.engine.Engine: [no key 0.00105s] ()
+2022-04-29 18:03:16,741 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:16,742 [INFO] sqlalchemy.engine.Engine: [no key 0.00084s] ()
+2022-04-29 18:03:16,743 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:16,749 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:16,750 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:16,751 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,752 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:16,753 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,754 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:16,755 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,756 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:16,760 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:16,761 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:16,762 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,763 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:16,764 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,765 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:16,766 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:16,767 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:17,167 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:17,168 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:17,169 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,171 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:17,172 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,174 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:17,175 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,176 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:17,177 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,178 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:17,179 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,180 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:17,181 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,184 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:17,185 [INFO] sqlalchemy.engine.Engine: [no key 0.00120s] ()
+2022-04-29 18:03:17,187 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:17,189 [INFO] sqlalchemy.engine.Engine: [no key 0.00108s] ()
+2022-04-29 18:03:17,191 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:17,192 [INFO] sqlalchemy.engine.Engine: [no key 0.00106s] ()
+2022-04-29 18:03:17,193 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:17,203 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:17,204 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:17,205 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,206 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:17,208 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,209 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:17,210 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,212 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:17,217 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:17,218 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:17,219 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,220 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:17,221 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,223 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:17,224 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,225 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:17,709 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:17,710 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:17,711 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,712 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:17,713 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,714 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:17,715 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,716 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:17,718 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,719 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:17,720 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,721 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:17,722 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,725 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:17,725 [INFO] sqlalchemy.engine.Engine: [no key 0.00105s] ()
+2022-04-29 18:03:17,727 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:17,728 [INFO] sqlalchemy.engine.Engine: [no key 0.00108s] ()
+2022-04-29 18:03:17,730 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:17,731 [INFO] sqlalchemy.engine.Engine: [no key 0.00092s] ()
+2022-04-29 18:03:17,732 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:17,740 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:17,741 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:17,742 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,743 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:17,744 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,745 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:17,746 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,747 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:17,752 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:17,753 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:17,754 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,755 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:17,756 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,757 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:17,758 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:17,759 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:18,273 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:18,274 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:18,275 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,277 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:18,278 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,279 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:18,280 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,281 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:18,282 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,284 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:18,285 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,286 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:18,287 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,289 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:18,290 [INFO] sqlalchemy.engine.Engine: [no key 0.00092s] ()
+2022-04-29 18:03:18,292 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:18,293 [INFO] sqlalchemy.engine.Engine: [no key 0.00096s] ()
+2022-04-29 18:03:18,295 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:18,296 [INFO] sqlalchemy.engine.Engine: [no key 0.00089s] ()
+2022-04-29 18:03:18,297 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:18,304 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:18,305 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:18,306 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,308 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:18,309 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,311 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:18,312 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,313 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:18,317 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:18,318 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:18,319 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,321 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:18,322 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,323 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:18,324 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,325 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:18,775 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:18,776 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("songs")
+2022-04-29 18:03:18,777 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,779 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("songs")
+2022-04-29 18:03:18,780 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,781 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("locations")
+2022-04-29 18:03:18,782 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,783 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("locations")
+2022-04-29 18:03:18,784 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,785 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-04-29 18:03:18,786 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,787 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-04-29 18:03:18,788 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-04-29 18:03:18,791 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-04-29 18:03:18,792 [INFO] sqlalchemy.engine.Engine: [no key 0.00105s] ()
+2022-04-29 18:03:18,795 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE songs (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	artist VARCHAR(300), 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:18,796 [INFO] sqlalchemy.engine.Engine: [no key 0.00096s] ()
+2022-04-29 18:03:18,798 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE locations (
+	id INTEGER NOT NULL, 
+	title VARCHAR(300), 
+	longitude VARCHAR(300), 
+	latitude VARCHAR(300), 
+	population INTEGER, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-04-29 18:03:18,799 [INFO] sqlalchemy.engine.Engine: [no key 0.00112s] ()
+2022-04-29 18:03:18,801 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:18,825 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:18,837 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT users.is_active AS users_is_active, users.id AS users_id, users.email AS users_email, users.password AS users_password, users.about AS users_about, users.authenticated AS users_authenticated, users.registered_on AS users_registered_on, users.is_admin AS users_is_admin 
+FROM users) AS anon_1
+2022-04-29 18:03:18,838 [INFO] sqlalchemy.engine.Engine: [generated in 0.00102s] ()
+2022-04-29 18:03:18,845 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.user_id AS songs_user_id 
+FROM songs) AS anon_1
+2022-04-29 18:03:18,846 [INFO] sqlalchemy.engine.Engine: [generated in 0.00101s] ()
+2022-04-29 18:03:18,852 [INFO] sqlalchemy.engine.Engine: INSERT INTO users (email, password, about, authenticated, registered_on) VALUES (?, ?, ?, ?, ?)
+2022-04-29 18:03:18,853 [INFO] sqlalchemy.engine.Engine: [generated in 0.00108s] ('keith@webizly.com', 'testtest', None, 0, '2022-04-29 18:03:18.848268')
+2022-04-29 18:03:18,858 [INFO] sqlalchemy.engine.Engine: SELECT users.is_active AS users_is_active, users.id AS users_id, users.email AS users_email, users.password AS users_password, users.about AS users_about, users.authenticated AS users_authenticated, users.registered_on AS users_registered_on, users.is_admin AS users_is_admin 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2022-04-29 18:03:18,858 [INFO] sqlalchemy.engine.Engine: [generated in 0.00091s] ('keith@webizly.com', 1, 0)
+2022-04-29 18:03:18,866 [INFO] sqlalchemy.engine.Engine: SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.user_id AS songs_user_id 
+FROM songs 
+WHERE ? = songs.user_id
+2022-04-29 18:03:18,866 [INFO] sqlalchemy.engine.Engine: [generated in 0.00125s] (1,)
+2022-04-29 18:03:18,872 [INFO] sqlalchemy.engine.Engine: INSERT INTO songs (title, artist, user_id) VALUES (?, ?, ?)
+2022-04-29 18:03:18,872 [INFO] sqlalchemy.engine.Engine: [generated in 0.00110s] ('test', 'smap', 1)
+2022-04-29 18:03:18,874 [INFO] sqlalchemy.engine.Engine: INSERT INTO songs (title, artist, user_id) VALUES (?, ?, ?)
+2022-04-29 18:03:18,875 [INFO] sqlalchemy.engine.Engine: [cached since 0.003336s ago] ('test2', 'te', 1)
+2022-04-29 18:03:18,876 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:18,879 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:18,880 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.user_id AS songs_user_id 
+FROM songs) AS anon_1
+2022-04-29 18:03:18,881 [INFO] sqlalchemy.engine.Engine: [cached since 0.03598s ago] ()
+2022-04-29 18:03:18,885 [INFO] sqlalchemy.engine.Engine: SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.user_id AS songs_user_id 
+FROM songs 
+WHERE songs.title = ?
+ LIMIT ? OFFSET ?
+2022-04-29 18:03:18,886 [INFO] sqlalchemy.engine.Engine: [generated in 0.00115s] ('test', 1, 0)
+2022-04-29 18:03:18,890 [INFO] sqlalchemy.engine.Engine: UPDATE songs SET title=? WHERE songs.id = ?
+2022-04-29 18:03:18,891 [INFO] sqlalchemy.engine.Engine: [generated in 0.00110s] ('SuperSongTitle', 1)
+2022-04-29 18:03:18,892 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-04-29 18:03:18,894 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-04-29 18:03:18,896 [INFO] sqlalchemy.engine.Engine: SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.user_id AS songs_user_id 
+FROM songs 
+WHERE songs.title = ?
+ LIMIT ? OFFSET ?
+2022-04-29 18:03:18,897 [INFO] sqlalchemy.engine.Engine: [cached since 0.01225s ago] ('SuperSongTitle', 1, 0)
+2022-04-29 18:03:18,901 [INFO] sqlalchemy.engine.Engine: SELECT users.is_active AS users_is_active, users.id AS users_id, users.email AS users_email, users.password AS users_password, users.about AS users_about, users.authenticated AS users_authenticated, users.registered_on AS users_registered_on, users.is_admin AS users_is_admin 
+FROM users 
+WHERE users.id = ?
+2022-04-29 18:03:18,902 [INFO] sqlalchemy.engine.Engine: [generated in 0.00111s] (1,)
+2022-04-29 18:03:18,904 [INFO] sqlalchemy.engine.Engine: SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.user_id AS songs_user_id 
+FROM songs 
+WHERE ? = songs.user_id
+2022-04-29 18:03:18,905 [INFO] sqlalchemy.engine.Engine: [cached since 0.04019s ago] (1,)
+2022-04-29 18:03:18,910 [INFO] sqlalchemy.engine.Engine: SELECT locations.id AS locations_id, locations.title AS locations_title, locations.longitude AS locations_longitude, locations.latitude AS locations_latitude, locations.population AS locations_population, locations.user_id AS locations_user_id 
+FROM locations 
+WHERE ? = locations.user_id
+2022-04-29 18:03:18,911 [INFO] sqlalchemy.engine.Engine: [generated in 0.00111s] (1,)
+2022-04-29 18:03:18,915 [INFO] sqlalchemy.engine.Engine: DELETE FROM songs WHERE songs.id = ?
+2022-04-29 18:03:18,916 [INFO] sqlalchemy.engine.Engine: [generated in 0.00125s] ((1,), (2,))
+2022-04-29 18:03:18,918 [INFO] sqlalchemy.engine.Engine: DELETE FROM users WHERE users.id = ?
+2022-04-29 18:03:18,919 [INFO] sqlalchemy.engine.Engine: [generated in 0.00097s] (1,)
+2022-04-29 18:03:18,921 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT users.is_active AS users_is_active, users.id AS users_id, users.email AS users_email, users.password AS users_password, users.about AS users_about, users.authenticated AS users_authenticated, users.registered_on AS users_registered_on, users.is_admin AS users_is_admin 
+FROM users) AS anon_1
+2022-04-29 18:03:18,922 [INFO] sqlalchemy.engine.Engine: [cached since 0.08536s ago] ()
+2022-04-29 18:03:18,925 [INFO] sqlalchemy.engine.Engine: SELECT count(*) AS count_1 
+FROM (SELECT songs.id AS songs_id, songs.title AS songs_title, songs.artist AS songs_artist, songs.user_id AS songs_user_id 
+FROM songs) AS anon_1
+2022-04-29 18:03:18,926 [INFO] sqlalchemy.engine.Engine: [cached since 0.08057s ago] ()
+2022-04-29 18:03:18,927 [INFO] sqlalchemy.engine.Engine: ROLLBACK
