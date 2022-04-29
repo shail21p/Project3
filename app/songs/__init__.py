@@ -10,6 +10,8 @@ from app.db import db
 from app.db.models import Song
 from app.songs.forms import csv_upload
 from werkzeug.utils import secure_filename, redirect
+#from logging_config import api_logger
+
 
 songs = Blueprint('songs', __name__,
                         template_folder='templates')
@@ -41,7 +43,7 @@ def songs_upload():
         with open(filepath) as file:
             csv_file = csv.DictReader(file)
             for row in csv_file:
-                list_of_songs.append(Song(row['Name'],row['Artist']))
+                list_of_songs.append(Song(row['Name'],row['Artist'],row['Year'],row['Genre']))
 
         current_user.songs = list_of_songs
         db.session.commit()
