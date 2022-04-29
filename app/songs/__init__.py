@@ -10,8 +10,6 @@ from app.db import db
 from app.db.models import Song
 from app.songs.forms import csv_upload
 from werkzeug.utils import secure_filename, redirect
-#from logging_config import api_logger
-
 
 songs = Blueprint('songs', __name__,
                         template_folder='templates')
@@ -34,6 +32,7 @@ def songs_upload():
     form = csv_upload()
     if form.validate_on_submit():
         log = logging.getLogger("myApp")
+        log.info()
 
         filename = secure_filename(form.file.data.filename)
         filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
