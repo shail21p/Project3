@@ -1,0 +1,5 @@
+2022-04-26 21:53:34,334 [INFO] werkzeug: 172.21.0.1 - - [26/Apr/2022 21:53:34] "GET / HTTP/1.1" 200 -
+2022-04-26 21:53:34,715 [INFO] werkzeug: 172.21.0.1 - - [26/Apr/2022 21:53:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-04-27 16:29:02,305 [INFO] werkzeug:  * Detected change in '/home/myuser/app/logging_config/log_formatters/__Init__.py', reloading
+2022-04-28 14:08:09,825 [INFO] werkzeug: 172.21.0.1 - - [28/Apr/2022 14:08:09] "GET / HTTP/1.0" 200 -
+2022-04-28 14:52:15,295 [INFO] werkzeug:  * Detected change in '/home/myuser/app/logging_config/log_formatters/__Init__.py', reloading
