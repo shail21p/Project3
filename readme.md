@@ -2,12 +2,12 @@
 
 [![Production Workflow](https://github.com/shail21p/Project3/actions/workflows/prod.yml/badge.svg)
 
-* [Production Deployment](https://github.com/shail21p/Project3/actions/workflows/prod.yml)
+https://prj-prod.herokuapp.com/
 
 
 [![Development Workflow](https://github.com/shail21p/Project3/actions/workflows/dev.yml/badge.svg)
 
-* [Developmental Deployment](https://github.com/shail21p/Project3/actions/workflows/dev.yml)
+https://prj-dev.herokuapp.com/
 
 ## Setting up CI/CD
 
